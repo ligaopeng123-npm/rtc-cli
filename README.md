@@ -15,10 +15,10 @@
 ```tsx
 rtc create <template> // 创建模板
 
-rtc c <template> // 简写
+rtc c <template> 
 
 rtc list <template>  // 查看模板支持命令
 
-rtc ls <template> // 简写
+rtc ls <template> 
 ```
 
