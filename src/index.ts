@@ -4,14 +4,18 @@ import {name, version} from '../package.json';
 import init, {list} from './core';
 
 const cli = cac('rtc');
-
+/**
+ * 创建create命令
+ */
 cli
 	.command('create <template>', 'Create new project from a template')
 	.alias('c')
 	.option('-c', 'Create new project from a template')
 	.example('rtc create app-test or rtc c app-test')
 	.action(init);
-
+/**
+ * 创建list命令
+ */
 cli
 	.command('list', 'Show all commands')
 	.alias('ls')
