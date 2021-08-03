@@ -14,6 +14,9 @@ cli
 	.example('rtc create app-test or rtc c app-test')
 	.action(init);
 /**
+ * 开发模块命令
+ */
+/**
  * 创建list命令
  */
 cli
