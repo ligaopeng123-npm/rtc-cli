@@ -13,11 +13,11 @@
 ### 使用方式
 
 ```tsx
-rtc create <template>
+rtc create <template> // 创建模板
 
 rtc c <template>
 
-rtc list <template>
+rtc list <template>  // 查看模板支持命令
 
 rtc ls <template>
 ```
