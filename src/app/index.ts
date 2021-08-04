@@ -11,12 +11,13 @@
  **********************************************************************/
 import Middleware from '../utils/middleware'
 import {Context} from '../typing';
+import check from "../core/check";
 import choose from './choose';
-import download from "./download";
-import project from "./project";
-import template from "./template";
-import install from "./install";
-import listFn from "./list";
+import download from "../core/download";
+import project from "../core/project";
+import template from "../core/template";
+import install from "../core/install";
+import context from "../core/context";
 
 // 中间件管理
 const middleware = new Middleware<Context>();
@@ -25,6 +26,10 @@ middleware
 /**
  * 检查目录是否存在
  */
+	.use(check)
+	/**
+	 * 处理用户选择
+	 */
 	.use(choose)
 	/**
 	 * 用户输入的项目信息
@@ -43,38 +48,16 @@ middleware
 	 */
 	.use(install);
 
-export default async (tpl: string): Promise<void> => {
+const app = async (tpl: string): Promise<void> => {
 	// required arguments
 	if (tpl == null || tpl === '') {
 		throw new Error('模板字段不存在 请输出模板名称！');
 		return;
 	}
-	
-	// create context
-	const context: Context = {
-		template: tpl,
-		project: null, // 默认问题
-		answers: {
-			project: null,
-			template: {
-				git: ''
-			},
-			install: "npm",
-		}, // 项目信息回答
-		gitUrl: '',
-		destCwd: '', // 目标文件
-		filesPath: [], // 文件目录
-	};
 	/**
 	 * 启动中间件 开始执行
 	 */
-	await middleware.run(context)
+	await middleware.run(context(tpl))
 };
 
-/**
- * ls命令
- * @param tpl
- */
-export const list = async (): Promise<void> => {
-	await listFn();
-};
+export default app;

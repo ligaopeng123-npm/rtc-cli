@@ -1,7 +1,9 @@
 import cac from 'cac'
 import {name, version} from '../package.json';
 // 初始化
-import init, {list} from './core';
+import app from "./app";
+import module from "./module";
+import list from "./list";
 
 const cli = cac('rtc');
 /**
@@ -12,10 +14,16 @@ cli
 	.alias('c')
 	.option('-c', 'Create new project from a template')
 	.example('rtc create app-test or rtc c app-test')
-	.action(init);
+	.action(app);
 /**
  * 开发模块命令
  */
+cli
+	.command('createModule <module>', 'Create new module from a template')
+	.alias('cm')
+	.option('-cm', 'Create new module from a template')
+	.example('rtc createModule NewModule or rtc cm NewModule')
+	.action(module);
 /**
  * 创建list命令
  */

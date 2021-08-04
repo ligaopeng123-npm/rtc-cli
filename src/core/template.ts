@@ -24,7 +24,9 @@ const template = async (ctx: Context): Promise<void> => {
 	 * 获取文件目录
 	 */
 	const entries = await filePath(cwd);
-	
+	/**
+	 * 获取文件内容
+	 */
 	const contents = await fileContents(entries, cwd);
 	/**
 	 * 存储项目目录

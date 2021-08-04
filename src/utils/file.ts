@@ -126,3 +126,36 @@ export const editTemplate = (contents: Uint8Array, data: object): Uint8Array => 
 		return contents;
 	}
 };
+
+/**
+ * 重命名
+ * @param oldPath
+ * @param newPath
+ */
+export const rename = async (oldPath: string, newPath: string): Promise<any> => {
+	return new Promise((resolve, reject) => {
+		if (oldPath !== newPath) {
+			fs.rename(oldPath, newPath, (err: any) => {
+				if (err) {
+					reject();
+				}
+				resolve(newPath);
+			})
+		}
+		resolve(newPath);
+	});
+};
+/**
+ * 修改文件夹名称
+ * @param path
+ * @param data
+ */
+export const editPath = (path: string, data: any): string => {
+	const compiled: any = template(path);
+	return compiled(data);
+};
+/**
+ * 获取用户名
+ */
+// @ts-ignore
+export const username = (): string => process.env['USERPROFILE'].split(path.sep)[2];

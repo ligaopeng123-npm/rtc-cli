@@ -9,11 +9,8 @@
  * @版权所有: pgli
  *
  **********************************************************************/
-import path from 'path'
 import prompts from 'prompts';
-import chalk from "chalk";
 import {Context, Install} from "../typing";
-import {exists, remove} from "../utils/file";
 
 /**
  * git 地址
@@ -23,7 +20,7 @@ const git = async (): Promise<string> => {
 		{
 			name: 'choose',
 			type: 'select',
-			message: `Please choose the created template`,
+			message: `Please choose the template to create`,
 			hint: ' ',
 			choices: [
 				{
@@ -39,13 +36,9 @@ const git = async (): Promise<string> => {
 					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip'
 				},
 				{
-					title: 'react-module(Module template)',
-					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip'
-				},
-				{
 					title: 'react-mobile(Mobile template)',
 					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip'
-				},
+				}
 			]
 		}
 	]);
@@ -81,34 +74,9 @@ const install = async (): Promise<Install> => {
 };
 
 const choose = async (ctx: Context): Promise<void> => {
-	console.clear();
-	/**
-	 * 根据template名称 设置当前的文件名称
-	 */
-	ctx.destCwd = path.resolve(ctx.template);
-	/**
-	 * 如果文件夹存在 则给出选择 是创建还是覆盖
-	 */
-	const isExists = await exists(ctx.destCwd);
-	if (isExists) {
-		const {sure} = await prompts([
-			{
-				name: 'sure',
-				type: 'confirm',
-				message: chalk.blue(`当前存在文件夹${ctx.template}，是否覆盖？`)
-			}
-		]);
-		if (sure) {
-			await remove(ctx.destCwd);
-			ctx.answers.template.git = await git();
-		} else {
-			throw new Error(chalk.yellow(`目前文件存在，请检查当前文件夹。`));
-			return;
-		}
-	} else {
-		ctx.answers.template.git = await git();
-	}
-	
+	// 选择git路径
+	ctx.answers.template.git = await git();
+	// 选择依赖下载途径
 	ctx.answers.install = await install();
 };
 

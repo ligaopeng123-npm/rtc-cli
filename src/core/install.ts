@@ -13,6 +13,7 @@ import chalk from "chalk";
 import {exec} from "../utils/cmd";
 import {Context, TemplateContents} from "../typing";
 
+
 const install = async (ctx: Context): Promise<void> => {
 	/**
 	 * 检查package.json是否存在
@@ -20,18 +21,20 @@ const install = async (ctx: Context): Promise<void> => {
 	if (ctx.filesPath.find((item: TemplateContents) => item.path === 'package.json') === null) {
 		return;
 	}
-	
+	const client = ctx.answers.install || 'npm';
+	const dir = chalk.green(`cd ${ctx.template}`);
+	const start = chalk.green(`${client} start`);
+	const _install = chalk.green(`${client} install`);
 	try {
-		const client = ctx.answers.install || 'npm';
 		/**
 		 * 检查系统类型 win和苹果 linux执行文件不一样
 		 */
 		const cmd = process.platform === 'win32' ? client + '.cmd' : client;
 		await exec(cmd, ['install'], {cwd: ctx.destCwd, stdio: 'inherit'});
-		console.log(chalk.green(`dir ${ctx.template}`));
-		console.log(chalk.green(`${client} start`));
+		console.log(`You can run ${dir} and ${start}`);
 	} catch (e) {
-		throw new Error('Install dependencies failed.')
+		console.log(`You can run ${dir} and ${_install}`);
+		throw new Error('Install dependencies failed.');
 	}
 };
 

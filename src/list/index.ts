@@ -15,6 +15,8 @@ const cmdChalk = (str: string) => chalk.dim(chalk.blueBright(str));
 const list = async (): Promise<void> => {
 	console.log(cmdChalk(`rtc create <template>`));
 	console.log(cmdChalk(`rtc c <template>`));
+	console.log(cmdChalk(`rtc createModule`));
+	console.log(cmdChalk(`rtc cm <template>`));
 	console.log(cmdChalk(`rtc list`));
 	console.log(cmdChalk(`rtc ls <template>`));
 };

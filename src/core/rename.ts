@@ -9,10 +9,22 @@
  * @版权所有: pgli
  *
  **********************************************************************/
+import path from "path";
 import {Context} from "../typing";
+import {editPath, filePath, rename} from "../utils/file";
 
-const rename = async (ctx: Context): Promise<void> => {
-	console.log(ctx);
+const _rename = async (ctx: Context): Promise<void> => {
+	const cwd = ctx.destCwd;
+	/**
+	 * 获取文件目录
+	 */
+	const entries = await filePath(cwd);
+	await Promise.all(entries.map(async (item: any) => {
+		const answers = ctx.answers.project;
+		const newPath = editPath(item, answers);
+		await rename(path.join(cwd, item), path.join(cwd, newPath));
+		return newPath
+	}));
 };
 
-export default rename;
+export default _rename;
