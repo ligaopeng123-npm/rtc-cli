@@ -5,9 +5,9 @@ rtc create <template> // 创建项目
 
 rtc c <template> 
     
-rtc createModule <template> // 创建模块
+rtc createModule <module> // 创建模块
 
-rtc cm <template> 
+rtc cm <module> 
 
 rtc list  // 查看命令支持
 

@@ -18,6 +18,7 @@ import rename from "../core/rename";
 import template from "../core/template";
 import context from "../core/context";
 import notice from "./notice";
+import router from "./router";
 
 // 中间件管理
 const middleware = new Middleware<Context>();
@@ -46,7 +47,11 @@ middleware
 	/**
 	 * 给用户的信息
 	 */
-	.use(notice);
+	.use(notice)
+	/**
+	 * 添加路由信息
+	 */
+	.use(router);
 
 const module = async (tpl: string): Promise<void> => {
 	// required arguments

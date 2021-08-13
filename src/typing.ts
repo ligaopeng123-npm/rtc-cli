@@ -24,6 +24,11 @@ export interface Answers {
 	install?: Install; // 编译选择信息
 }
 
+export type Router = {
+	name: string; // 路由名称
+	path: string; // 路由地址
+} | null;
+
 /**
  * 上下文对象
  */
@@ -33,6 +38,7 @@ export interface Context {
 	project: Array<Project> | null; // 项目信息
 	answers: Answers; // 项目信息
 	filesPath: Array<TemplateContents>; // 文件目录
+	router?: Router; // 路由信息
 	[propName: string]: any;
 }
 
