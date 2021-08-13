@@ -12,6 +12,7 @@
 import prompts from "prompts";
 import {Context} from "../typing";
 import {username} from "../utils/file";
+import {formatTimestamp} from "@gaopeng123/utils";
 
 /**
  * git 地址
@@ -48,7 +49,7 @@ const choose = async (ctx: Context): Promise<void> => {
 		// 根据用户回答 将命名规范为驼峰
 		name: ctx.template.substr(0, 1).toLocaleUpperCase() + ctx.template.substring(1),
 		username: username(),
-		time: new Date(),
+		time: formatTimestamp(new Date()),
 		escape: '${'
 	});
 };

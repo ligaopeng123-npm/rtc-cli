@@ -15,6 +15,7 @@ import {Context} from "../typing";
 import path from "path";
 import {readFile, writeFile} from "../utils/file";
 import {addRouter} from "../utils/router";
+import {randomInt} from "@gaopeng123/utils";
 
 const routerInfo = async (ctx: Context): Promise<any> => {
 	const {sure} = await prompts([
@@ -74,7 +75,7 @@ const router = async (ctx: Context): Promise<void> => {
 			 */
 			addRouter(menus, pathUrl,
 				{
-					"id": 53,
+					"id": randomInt(100, 200),
 					"name": ctx.router.name || ctx.template,
 					"path": ctx.router.path || `/${pathUrl}`,
 					"component": pathUrl,
