@@ -18,6 +18,7 @@ import project from "../core/project";
 import template from "../core/template";
 import install from "../core/install";
 import context from "../core/context";
+import images from "../core/images";
 
 // 中间件管理
 const middleware = new Middleware<Context>();
@@ -38,14 +39,19 @@ middleware
 	/**
 	 * 下载git模板代码
 	 */
+	.use(images)
+	/**
+	 * 安装依赖
+	 */
 	.use(download)
 	/**
 	 * 根据用户输入信息 替换模板变量
 	 */
 	.use(template)
 	/**
-	 * 安装依赖
+	 * 镜像管理服务
 	 */
+	
 	.use(install);
 
 const app = async (tpl: string): Promise<void> => {

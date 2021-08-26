@@ -17,7 +17,7 @@ const template = async (ctx: Context): Promise<void> => {
 	/**
 	 * 用户回答信息
 	 */
-	const answers = ctx.answers.project;
+	const answers = Object.assign({}, ctx.answers.project, ctx.answers.images);
 	if (!answers) return;
 	const cwd = ctx.destCwd;
 	/**

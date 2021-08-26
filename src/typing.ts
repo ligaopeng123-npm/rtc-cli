@@ -18,10 +18,17 @@ export interface Template {
 
 export type Install = 'npm' | 'yarn' | 'cnpm';
 
+export type Images = {
+	imagesUrl: string; // harbor获取其他镜像服务地址
+	imagesMaintainer: string; // 权限维护
+	[propName: string]: any;
+}
+
 export interface Answers {
 	project?: object | null; // 项目信息
 	template: Template; // 模板信息
 	install?: Install; // 编译选择信息
+	images?: Images
 }
 
 export type Router = {
@@ -36,6 +43,7 @@ export interface Context {
 	destCwd: string; // 输出目录
 	template: string; // 模板名称
 	project: Array<Project> | null; // 项目信息
+	images: Array<Project> | null; // 项目信息
 	answers: Answers; // 项目信息
 	filesPath: Array<TemplateContents>; // 文件目录
 	router?: Router; // 路由信息
