@@ -5,4 +5,3 @@ describe('blah', () => {
     expect(sum(1, 1)).toEqual(2);
   });
 });
-
