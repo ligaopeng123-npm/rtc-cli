@@ -1,5 +1,5 @@
 {
-    "version": "0.1.6",
+    "version": "0.1.9",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -10,7 +10,7 @@
     },
     "files": [
         "dist",
-        "src"
+        "bin"
     ],
     "engines": {
         "node": ">=10"
@@ -21,6 +21,7 @@
     "scripts": {
         "start": "tsdx watch",
         "build": "tsdx build",
+        "build:test": "set NODE_ENV=test && tsdx build",
         "test": "tsdx test",
         "lint": "tsdx lint",
         "push": "npm publish --access public",
@@ -62,7 +63,6 @@
         "husky": "^7.0.1",
         "size-limit": "^5.0.2",
         "tsdx": "^0.14.1",
-        "tslib": "^2.3.0",
         "typescript": "^4.3.5"
     },
     "dependencies": {
@@ -73,6 +73,7 @@
         "fast-glob": "^3.2.7",
         "lodash.template": "^4.5.0",
         "ora": "^5.4.1",
-        "prompts": "^2.4.1"
+        "prompts": "^2.4.1",
+        "tslib": "^2.3.0"
     }
 }
