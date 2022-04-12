@@ -1,4 +1,4 @@
-### 使用方式
+## 使用方式
 
 ```tsx
 rtc create <template> // 创建项目
@@ -14,7 +14,29 @@ rtc list  // 查看命令支持
 rtc ls
 ```
 
-### 插件依赖
+## 模板支持
+
+### 框架
+
+#### react-sample
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-simple-template/README.md ':include')
+
+#### react-electron
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-electron-template/README.md ':include')
+
+#### react-screen
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-screen-template/README.md ':include')
+
+### 模块
+
+#### table
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/table-module/README.md ':include')
+
+## 插件依赖
 
 | 插件              | 目的         |
 | ----------------- | ------------ |
