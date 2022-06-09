@@ -10,31 +10,43 @@
  *
  **********************************************************************/
 import path from "path";
-import {editTemplate, fileContents, filePath, writeFile} from "../utils/file";
+import {
+    editTemplate,
+    editTemplateErrorFile,
+    fileContents,
+    filePath,
+    writeFile
+} from "../utils/file";
 import {Context} from "../typing";
 
 const template = async (ctx: Context): Promise<void> => {
-	/**
-	 * 用户回答信息
-	 */
-	const answers = Object.assign({}, ctx.answers.project, ctx.answers.images);
-	if (!answers) return;
-	const cwd = ctx.destCwd;
-	/**
-	 * 获取文件目录
-	 */
-	const entries = await filePath(cwd);
-	/**
-	 * 获取文件内容
-	 */
-	const contents = await fileContents(entries, cwd);
-	/**
-	 * 存储项目目录
-	 */
-	ctx.filesPath = contents;
-	await Promise.all(contents.map(async (item: any) => {
-		return await writeFile(path.join(cwd, item.path), editTemplate(item.contents, answers))
-	}));
+    /**
+     * 用户回答信息
+     */
+    const answers = Object.assign({}, ctx.answers.project, ctx.answers.images);
+    if (!answers) return;
+    const cwd = ctx.destCwd;
+    /**
+     * 获取文件目录
+     */
+    const entries = await filePath(cwd);
+    /**
+     * 获取文件内容
+     */
+    const contents = await fileContents(entries, cwd);
+    /**
+     * 存储项目目录
+     */
+    ctx.filesPath = contents;
+    await Promise.all(contents.map(async (item: any) => {
+        return await writeFile(path.join(cwd, item.path),
+            editTemplate(item.contents, answers, (contents) => {
+                if (item.path?.endsWith('Dockerfile') || item.path?.endsWith('Make.def')) {
+                    return editTemplateErrorFile(contents, answers);
+                }
+                return contents;
+            }))
+    }));
 };
 
 export default template;

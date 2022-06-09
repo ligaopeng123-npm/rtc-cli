@@ -20,23 +20,23 @@ import {TemplateContents} from "../typing";
  * @param input
  */
 export const exists = async (input: string): Promise<false | 'file' | 'dir' | 'other'> => {
-	try {
-		const stat = await fs.promises.stat(input);
-		/* istanbul ignore else */
-		if (stat.isDirectory()) {
-			return 'dir'
-		} else if (stat.isFile()) {
-			return 'file'
-		} else {
-			return 'other'
-		}
-	} catch (err) {
-		/* istanbul ignore if */
-		if (err.code !== 'ENOENT') {
-			throw err
-		}
-		return false
-	}
+    try {
+        const stat = await fs.promises.stat(input);
+        /* istanbul ignore else */
+        if (stat.isDirectory()) {
+            return 'dir'
+        } else if (stat.isFile()) {
+            return 'file'
+        } else {
+            return 'other'
+        }
+    } catch (err) {
+        /* istanbul ignore if */
+        if (err.code !== 'ENOENT') {
+            throw err
+        }
+        return false
+    }
 };
 
 /**
@@ -45,21 +45,21 @@ export const exists = async (input: string): Promise<false | 'file' | 'dir' | 'o
  * @param options
  */
 export const remove = async (input: string, options?: fs.RmDirOptions): Promise<void> => {
-	const result = await exists(input);
-	
-	if (result === false) return;
-	
-	if (result !== 'dir') {
-		return await fs.promises.unlink(input)
-	}
-	
-	const entries = await fs.promises.readdir(input);
-	
-	await Promise.all(entries.map(async item => {
-		await remove(path.join(input, item), options)
-	}));
-	
-	await fs.promises.rmdir(input, options)
+    const result = await exists(input);
+
+    if (result === false) return;
+
+    if (result !== 'dir') {
+        return await fs.promises.unlink(input)
+    }
+
+    const entries = await fs.promises.readdir(input);
+
+    await Promise.all(entries.map(async item => {
+        await remove(path.join(input, item), options)
+    }));
+
+    await fs.promises.rmdir(input, options)
 };
 
 /**
@@ -67,8 +67,8 @@ export const remove = async (input: string, options?: fs.RmDirOptions): Promise<
  * @param input
  */
 export const isEmpty = async (input: string): Promise<boolean> => {
-	const files = await fs.promises.readdir(input);
-	return files.length === 0
+    const files = await fs.promises.readdir(input);
+    return files.length === 0
 };
 
 /**
@@ -76,7 +76,7 @@ export const isEmpty = async (input: string): Promise<boolean> => {
  * @param input
  */
 export const readFile = async (input: string): Promise<Buffer> => {
-	return await fs.promises.readFile(input)
+    return await fs.promises.readFile(input)
 };
 /**
  * 文件写入
@@ -84,7 +84,7 @@ export const readFile = async (input: string): Promise<Buffer> => {
  * @param contents
  */
 export const writeFile = async (input: string, contents: string | Uint8Array): Promise<void> => {
-	return await fs.promises.writeFile(input, contents)
+    return await fs.promises.writeFile(input, contents)
 };
 
 /**
@@ -92,13 +92,13 @@ export const writeFile = async (input: string, contents: string | Uint8Array): P
  * @param cwd
  */
 export const filePath = async (cwd: string) => {
-	return await glob(['**'], {
-		cwd: cwd,
-		ignore: ['*js.map', '*.js'],
-		dot: true,
-		deep: 5
-	});
-	
+    return await glob(['**'], {
+        cwd: cwd,
+        ignore: ['*js.map', '*.js'],
+        dot: true,
+        deep: 5
+    });
+
 };
 
 /**
@@ -106,26 +106,38 @@ export const filePath = async (cwd: string) => {
  * @param path
  */
 export const fileContents = async (entries: Array<string>, cwd: string): Promise<Array<TemplateContents>> => {
-	return await Promise.all(entries.map(async (entry: string) => {
-		const contents = await readFile(path.join(cwd, entry));
-		return {path: entry, contents}
-	}));
+    return await Promise.all(entries.map(async (entry: string) => {
+        const contents = await readFile(path.join(cwd, entry));
+        return {path: entry, contents}
+    }));
 };
 /**
  * 修改模板信息
  * @param contents
  * @param data
  */
-export const editTemplate = (contents: Uint8Array, data: object): Uint8Array => {
-	try {
-		const text = contents.toString();
-		const compiled: any = template(text);
-		const newContents = compiled(data);
-		return Buffer.from(newContents);
-	} catch (e) {
-		return contents;
-	}
+export const editTemplate = (contents: Uint8Array, data: object, errerBack?: (contents: Uint8Array) => Uint8Array): Uint8Array => {
+    try {
+        const text = contents.toString();
+        const compiled: any = template(text);
+        const newContents = compiled(data);
+        return Buffer.from(newContents);
+    } catch (e) {
+        return errerBack ? errerBack(contents) : contents;
+    }
 };
+/**
+ * 处理lodash.template不能处理的Dockerfile和Makefile
+ * @param contents
+ * @param data
+ */
+export const editTemplateErrorFile = (contents: Uint8Array, data: any): Uint8Array => {
+    let text = contents.toString();
+    for (const dataKey in data) {
+        text = text.replace(new RegExp(`<%= ${dataKey} %>`, 'g'), data[dataKey]);
+    }
+    return Buffer.from(text);
+}
 
 /**
  * 重命名
@@ -133,17 +145,17 @@ export const editTemplate = (contents: Uint8Array, data: object): Uint8Array => 
  * @param newPath
  */
 export const rename = async (oldPath: string, newPath: string): Promise<any> => {
-	return new Promise((resolve, reject) => {
-		if (oldPath !== newPath) {
-			fs.rename(oldPath, newPath, (err: any) => {
-				if (err) {
-					reject();
-				}
-				resolve(newPath);
-			})
-		}
-		resolve(newPath);
-	});
+    return new Promise((resolve, reject) => {
+        if (oldPath !== newPath) {
+            fs.rename(oldPath, newPath, (err: any) => {
+                if (err) {
+                    reject();
+                }
+                resolve(newPath);
+            })
+        }
+        resolve(newPath);
+    });
 };
 /**
  * 修改文件夹名称
@@ -151,8 +163,8 @@ export const rename = async (oldPath: string, newPath: string): Promise<any> => 
  * @param data
  */
 export const editPath = (path: string, data: any): string => {
-	const compiled: any = template(path);
-	return compiled(data);
+    const compiled: any = template(path);
+    return compiled(data);
 };
 /**
  * 获取用户名
