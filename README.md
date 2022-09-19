@@ -1,4 +1,6 @@
-## 使用方式
+# 介绍
+
+## 命令
 
 ```tsx
 rtc create <template> // 创建项目
@@ -14,28 +16,6 @@ rtc list  // 查看命令支持
 rtc ls
 ```
 
-## 模板支持
-
-### 框架
-
-#### react-sample
-
-[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-simple-template/README.md ':include')
-
-#### react-electron
-
-[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-electron-template/README.md ':include')
-
-#### react-screen
-
-[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-screen-template/README.md ':include')
-
-### 模块
-
-#### table
-
-[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/table-module/README.md ':include')
-
 ## 插件依赖
 
 | 插件              | 目的         |
@@ -47,3 +27,29 @@ rtc ls
 | lodash.template   | 处理模板     |
 | ora               | loading效果  |
 | fast-glob         | 文件名读取   |
+
+# 模板支持
+
+## react-sample
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-simple-template/README.md ':include')
+
+## react-electron
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-electron-template/README.md ':include')
+
+## react-screen
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-screen-template/README.md ':include')
+
+## table
+
+- Store: 定义数据state及action
+- typing：定义数据类型相关
+- api：服务端相关
+- styles.module：定义样式相关
+- components：定义组件相关
+  - TableForm：弹窗内部form表单
+  - TableModal：弹窗组件
+  - Table：表格组件
+
