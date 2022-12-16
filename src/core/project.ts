@@ -25,6 +25,9 @@ export const processor = (item: Project, ctx: Context) => {
 		case 'title':
 			item.initial = item.initial || `管理系统`;
 			break;
+		case 'description':
+			item.initial = item.initial || `描述信息`;
+			break;
 		case 'version':
 			item.initial = item.initial || '0.1.0';
 			break;
@@ -42,6 +45,7 @@ export default async (ctx: Context): Promise<void> => {
 		ctx.project = [
 			{name: 'name', type: 'text', message: `project name(${ctx.template})`},
 			{name: 'title', type: 'text', message: 'Project title(管理系统)'},
+			{name: 'description', type: 'text', message: 'Project description(描述信息)'},
 			{name: 'version', type: 'text', message: 'version(0.1.0)'},
 		];
 	}
@@ -49,8 +53,8 @@ export default async (ctx: Context): Promise<void> => {
 		ctx.project.forEach(async (item: Project) => {
 			return await processor(item, ctx);
 		});
-		
-		
+
+
 		/* istanbul ignore next */
 		const onCancel = (): never => {
 			throw new Error('You have cancelled this task.');
