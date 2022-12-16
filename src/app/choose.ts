@@ -24,32 +24,39 @@ const git = async (): Promise<string> => {
             hint: ' ',
             choices: [
                 {
-                    title: 'react-sample(Management system)',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip'
+                    title: 'react-sample',
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip',
+                    description: '中后台管理习惯'
                 },
                 {
-                    title: 'react-screen(Large screen report)',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-screen.zip'
+                    title: 'react-screen',
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-screen.zip',
+                    description: '大屏报表系统'
                 },
                 {
-                    title: 'react-electron(Electron + react + ant)',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-electron.zip'
+                    title: 'react-electron',
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-electron.zip',
+                    description: 'electron客户端'
                 },
                 {
-                	title: 'components-repo(pnpm+lerna)',
-                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/components-repo.zip'
+                	title: 'components-repo',
+                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/components-repo.zip',
+                    description: '组件monorepo'
                 },
                 {
-                    title: 'function-repo(pnpm+lerna)',
-                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/function-repo.zip'
+                    title: 'function-repo',
+                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/function-repo.zip',
+                    description: '函数monorepo'
                 },
                 {
                     title: 'component',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/componentModule.zip'
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/componentModule.zip',
+                    description: '组件monorepo单组件'
                 },
                 {
                     title: 'function',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/functionModule.zip'
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/functionModule.zip',
+                    description: '函数monorepo单函数'
                 }
             ]
         }
