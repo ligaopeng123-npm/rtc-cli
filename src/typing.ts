@@ -16,7 +16,7 @@ export interface Template {
 	git: string;
 }
 
-export type Install = 'npm' | 'yarn' | 'cnpm';
+export type Install = 'npm' | 'pnpm' | 'yarn' | 'cnpm';
 
 export type Images = {
 	imagesUrl: string; // harbor获取其他镜像服务地址

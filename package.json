@@ -1,5 +1,5 @@
 {
-    "version": "0.1.10",
+    "version": "0.2.0",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -24,8 +24,8 @@
         "build:test": "set NODE_ENV=test && tsdx build",
         "test": "tsdx test",
         "lint": "tsdx lint",
-        "push": "npm publish --access public",
-        "link": "npm uninstall -g rtc && npm link --force",
+        "push": "pnpm publish --access public --no-git-checks",
+        "link": "pnpm uninstall -g rtc && npm link --force",
         "prepare": "tsdx build",
         "size": "size-limit",
         "analyze": "size-limit --why"

@@ -35,14 +35,22 @@ const git = async (): Promise<string> => {
                     title: 'react-electron(Electron + react + ant)',
                     value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-electron.zip'
                 },
-                // {
-                // 	title: 'react-component(Component template)',
-                // 	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip'
-                // },
-                // {
-                // 	title: 'react-mobile(Mobile template)',
-                // 	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip'
-                // }
+                {
+                	title: 'components-repo(pnpm+lerna)',
+                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/components-repo.zip'
+                },
+                {
+                    title: 'function-repo(pnpm+lerna)',
+                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/function-repo.zip'
+                },
+                {
+                    title: 'component',
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/componentModule.zip'
+                },
+                {
+                    title: 'function',
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/functionModule.zip'
+                }
             ]
         }
     ]);
@@ -62,6 +70,10 @@ const install = async (): Promise<Install> => {
                 {
                     title: 'npm',
                     value: 'npm'
+                },
+                {
+                    title: 'pnpm',
+                    value: 'pnpm'
                 },
                 {
                     title: 'yarn',
