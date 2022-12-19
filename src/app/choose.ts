@@ -26,7 +26,7 @@ const git = async (): Promise<string> => {
                 {
                     title: 'react-sample',
                     value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip',
-                    description: '中后台管理习惯'
+                    description: '中后台管理系统'
                 },
                 {
                     title: 'react-screen',
