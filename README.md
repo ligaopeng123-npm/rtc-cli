@@ -16,7 +16,7 @@ rtc list  // 查看命令支持
 rtc ls
 ```
 
-## 插件依赖
+### 插件依赖
 
 | 插件              | 目的         |
 | ----------------- | ------------ |
@@ -28,21 +28,37 @@ rtc ls
 | ora               | loading效果  |
 | fast-glob         | 文件名读取   |
 
-# 模板支持
+## 模板支持
 
-## react-sample
+### 模板
+
+#### react-sample
 
 [filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-simple-template/README.md ':include')
 
-## react-electron
+#### react-electron
 
 [filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-electron-template/README.md ':include')
 
-## react-screen
+#### react-screen
 
 [filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/react-screen-template/README.md ':include')
 
-## table
+#### flutter-repo
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/flutter-repo-template/README.md ':include')
+
+#### components-repo
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/components-repo/README.md ':include')
+
+#### function-repo
+
+[filename](https://raw.githubusercontent.com/ligaopeng123/react-project-template/function-repo/README.md ':include')
+
+### 模块
+
+#### table
 
 - Store: 定义数据state及action
 - typing：定义数据类型相关
@@ -52,4 +68,16 @@ rtc ls
   - TableForm：弹窗内部form表单
   - TableModal：弹窗组件
   - Table：表格组件
+
+#### function
+
+`依赖function-repo，开发函数库，包含jest测试等功能。上传到npm`
+
+#### rc-component
+
+`依赖components-repo，开发react组件，包含开发测试环境，自动检测变更上传等功能。上传到npm`
+
+#### web-component
+
+`依赖components-repo，开发web组件，包含开发测试环境，自动检测变更上传等功能。上传到npm`
 

@@ -30,12 +30,12 @@ export const exists = async (input: string): Promise<false | 'file' | 'dir' | 'o
         } else {
             return 'other'
         }
-    } catch (err: any) {
-        /* istanbul ignore if */
+    } catch (err) {
+        // @ts-ignore
         if (err.code !== 'ENOENT') {
-            throw err
+            throw err;
         }
-        return false
+        return false;
     }
 };
 
