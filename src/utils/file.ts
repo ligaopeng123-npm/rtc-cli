@@ -30,7 +30,7 @@ export const exists = async (input: string): Promise<false | 'file' | 'dir' | 'o
         } else {
             return 'other'
         }
-    } catch (err) {
+    } catch (err: any) {
         /* istanbul ignore if */
         if (err.code !== 'ENOENT') {
             throw err
@@ -166,8 +166,12 @@ export const editPath = (path: string, data: any): string => {
     const compiled: any = template(path);
     return compiled(data);
 };
+
 /**
- * 获取用户名
+ * 获取用户名 env.LOGNAME || env.USER || env.LNAME || env.USERNAME;
  */
-// @ts-ignore
-export const username = (): string => process.env['USERPROFILE'].split(path.sep)[2];
+export const username = (): string => {
+    const env = process.env;
+    const name: any = env.LOGNAME || env.USER || env.LNAME || env.USERNAME;
+    return name.includes('/') ? name.split(path.sep)[2] : name;
+};
