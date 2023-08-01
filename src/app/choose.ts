@@ -39,24 +39,19 @@ const git = async (): Promise<string> => {
                     description: 'electron客户端'
                 },
                 {
+                    title: 'flutter-repo',
+                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/flutter-repo.zip',
+                    description: 'flutter应用'
+                },
+                {
                 	title: 'components-repo',
                 	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/components-repo.zip',
-                    description: '组件monorepo'
+                    description: 'monorepo组件库'
                 },
                 {
                     title: 'function-repo',
                 	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/function-repo.zip',
-                    description: '函数monorepo'
-                },
-                {
-                    title: 'component',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/componentModule.zip',
-                    description: '组件monorepo单组件'
-                },
-                {
-                    title: 'function',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/functionModule.zip',
-                    description: '函数monorepo单函数'
+                    description: 'monorepo函数库'
                 }
             ]
         }

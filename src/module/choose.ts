@@ -27,7 +27,23 @@ const git = async (): Promise<string> => {
 			choices: [
 				{
 					title: 'table',
-					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/table-module.zip'
+					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/table-module.zip',
+					description: '简单表格'
+				},
+				{
+					title: 'web-component',
+					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/componentModule.zip',
+					description: 'web-component组件'
+				},
+				{
+					title: 'rc-component',
+					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/RcComponentModule.zip',
+					description: 'rc-component组件'
+				},
+				{
+					title: 'function',
+					value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/functionModule.zip',
+					description: 'monorepo单函数'
 				}
 			]
 		}
