@@ -1,5 +1,5 @@
 {
-    "version": "0.3.0",
+    "version": "0.3.1",
     "license": "MIT",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
@@ -26,6 +26,7 @@
         "lint": "tsdx lint",
         "push": "pnpm publish --access public --no-git-checks",
         "link": "npm uninstall -g rtc && npm link --force",
+        "pnpm-link": "pnpm run build && pnpm link --global",
         "prepare": "tsdx build",
         "size": "size-limit",
         "analyze": "size-limit --why"

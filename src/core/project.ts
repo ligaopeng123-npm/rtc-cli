@@ -35,15 +35,16 @@ export const processor = (item: Project, ctx: Context) => {
 			break;
 	}
 };
-
 /**
- * Inquire template prompts.
+ * 基础模板
+ * @param ctx
+ * @param project
  */
-export default async (ctx: Context): Promise<void> => {
+const projectFn = async (ctx: Context, project?: Array<any>): Promise<void> => {
 	// 默认配置
 	if (!ctx.project) {
-		ctx.project = [
-			{name: 'name', type: 'text', message: `project name(${ctx.template})`},
+		ctx.project = project || [
+			{name: 'name', type: 'text', message: `Project name(${ctx.template})`},
 			{name: 'title', type: 'text', message: 'Project title(管理系统)'},
 			{name: 'description', type: 'text', message: 'Project description(描述信息)'},
 			{name: 'version', type: 'text', message: 'version(0.1.0)'},
@@ -69,3 +70,18 @@ export default async (ctx: Context): Promise<void> => {
 		ctx.answers.project = Object.assign({}, ctx.answers.project, answers);
 	}
 }
+/**
+ * 模块的录入
+ * @param ctx
+ */
+export const moduleProject = async (ctx: Context)=> {
+	await projectFn(ctx, [
+		{name: 'name', type: 'text', message: `Module name(${ctx.template})`},
+		{name: 'description', type: 'text', message: 'Module description(描述信息)'},
+		{name: 'version', type: 'text', message: 'version(0.1.0)'},
+	]);
+}
+/**
+ * Inquire template prompts.
+ */
+export default projectFn;
