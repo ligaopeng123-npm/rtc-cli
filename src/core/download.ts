@@ -13,6 +13,7 @@ import download from 'download-git-repo';
 import ora from 'ora';
 import chalk from "chalk";
 import {Context} from "../typing";
+import { GIT_TEMPLATE_IS_CLONE } from "../utils/file";
 
 const gitDownload = (ctx: Context): Promise<any> => {
 	return new Promise((resolve) => {
@@ -20,6 +21,7 @@ const gitDownload = (ctx: Context): Promise<any> => {
 		download(
 			`direct:${ctx.answers.template.git}`,
 			ctx.destCwd,
+			{clone: GIT_TEMPLATE_IS_CLONE},
 			(err: Error) => {
 				err ? spinner.fail(chalk.red(`模板下载失败！${err}`)) : spinner.succeed(chalk.green("模板下载成功!"));
 				spinner.stop();

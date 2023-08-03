@@ -10,7 +10,8 @@
  *
  **********************************************************************/
 import prompts from 'prompts';
-import {Context, Install} from "../typing";
+import { Context, Install } from "../typing";
+import { getGitDownloadUlr } from "../utils/file";
 
 /**
  * git 地址
@@ -24,33 +25,33 @@ const git = async (): Promise<string> => {
             hint: ' ',
             choices: [
                 {
-                    title: 'react-sample',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip',
+                    title: 'react-simple',
+                    value: getGitDownloadUlr('react-simple'),
                     description: '中后台管理系统'
                 },
                 {
                     title: 'react-screen',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-screen.zip',
+                    value: getGitDownloadUlr('react-screen'),
                     description: '大屏报表系统'
                 },
                 {
                     title: 'react-electron',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-electron.zip',
+                    value: getGitDownloadUlr('react-electron'),
                     description: 'electron客户端'
                 },
                 {
                     title: 'flutter-repo',
-                    value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/flutter-repo.zip',
+                    value: getGitDownloadUlr('flutter-repo'),
                     description: 'flutter应用'
                 },
                 {
-                	title: 'components-repo',
-                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/components-repo.zip',
+                    title: 'components-repo',
+                    value: getGitDownloadUlr('components-repo'),
                     description: 'monorepo组件库'
                 },
                 {
                     title: 'function-repo',
-                	value: 'https://github.com/ligaopeng123/react-project-template/archive/refs/heads/function-repo.zip',
+                    value: getGitDownloadUlr('function-repo'),
                     description: 'monorepo函数库'
                 }
             ]

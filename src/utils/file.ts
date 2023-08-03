@@ -175,3 +175,18 @@ export const username = (): string => {
     const name: any = env.LOGNAME || env.USER || env.LNAME || env.USERNAME;
     return name.includes('/') ? name.split(path.sep)[2] : name;
 };
+/**
+ *
+ * @param gitUlr  git地址
+ * @param branch  分支名称
+ */
+export const GIT_TEMPLATE_URL = 'https://github.com/ligaopeng123/react-project-template';
+export const GIT_TEMPLATE_IS_CLONE = false;
+export const getGitDownloadUlr = (branch: string): string => {
+    return spliceGitDownloadUlr(GIT_TEMPLATE_IS_CLONE, branch);
+}
+// https://github.com/ligaopeng123/react-project-template.git#react-simple
+// https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip
+export const spliceGitDownloadUlr = (isClone: boolean, branch: string)=> {
+    return isClone ? `${GIT_TEMPLATE_URL}.git#${branch}` : `${GIT_TEMPLATE_URL}/archive/refs/heads/${branch}.zip`;
+}
