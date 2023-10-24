@@ -41,7 +41,7 @@ const template = async (ctx: Context): Promise<void> => {
     await Promise.all(contents.map(async (item: any) => {
         return await writeFile(path.join(cwd, item.path),
             editTemplate(item.contents, answers, (contents) => {
-                if (item.path?.endsWith('Dockerfile') || item.path?.endsWith('Make.def')) {
+                if (item.path?.endsWith('Dockerfile') || item.path?.endsWith('Make.def') || item.path?.endsWith('.txt')) {
                     return editTemplateErrorFile(contents, answers);
                 }
                 return contents;
