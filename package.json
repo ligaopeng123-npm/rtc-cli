@@ -1,83 +1,82 @@
 {
-    "version": "0.3.3",
-    "license": "MIT",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "private": false,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ligaopeng123-npm/rtc-cli.git"
-    },
-    "files": [
-        "dist",
-        "bin"
-    ],
-    "engines": {
-        "node": ">=10"
-    },
-    "bin": {
-        "rtc": "bin/index.js"
-    },
-    "scripts": {
-
-        "start": "tsdx watch",
-        "build": "tsdx build",
-        "build:test": "set NODE_ENV=test && tsdx build",
-        "test": "tsdx test",
-        "lint": "tsdx lint",
-        "push": "pnpm publish --access public --no-git-checks",
-        "link": "npm uninstall -g rtc && npm link --force",
-        "pnpm-link": "pnpm run build && pnpm link --global",
-        "prepare": "tsdx build",
-        "size": "size-limit",
-        "analyze": "size-limit --why"
-    },
-    "peerDependencies": {},
-    "husky": {
-        "hooks": {
-            "pre-commit": "tsdx lint"
-        }
-    },
-    "prettier": {
-        "printWidth": 80,
-        "semi": true,
-        "singleQuote": true,
-        "trailingComma": "es5"
-    },
-    "name": "@gaopeng123/rtc-cli",
-    "description": "react template create cli",
-    "author": "ligaopeng123",
-    "module": "dist/rtc-cli.esm.js",
-    "size-limit": [
-        {
-            "path": "dist/rtc-cli.cjs.production.min.js",
-            "limit": "10 KB"
-        },
-        {
-            "path": "dist/rtc-cli.esm.js",
-            "limit": "10 KB"
-        }
-    ],
-    "devDependencies": {
-        "@size-limit/preset-small-lib": "^5.0.2",
-        "@types/lodash.template": "^4.5.0",
-        "@types/node": "^16.4.10",
-        "@types/prompts": "^2.0.14",
-        "husky": "^7.0.1",
-        "size-limit": "^5.0.2",
-        "ts-node": "^10.8.1",
-        "tsdx": "^0.14.1",
-        "typescript": "^4.3.5"
-    },
-    "dependencies": {
-        "@gaopeng123/utils": "latest",
-        "cac": "^6.7.3",
-        "chalk": "^4.1.2",
-        "download-git-repo": "^3.0.2",
-        "fast-glob": "^3.2.7",
-        "lodash.template": "^4.5.0",
-        "ora": "^5.4.1",
-        "prompts": "^2.4.1",
-        "tslib": "^2.3.0"
+  "version": "0.3.5",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ligaopeng123-npm/rtc-cli.git"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "bin": {
+    "rtc": "bin/index.js"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "build:test": "set NODE_ENV=test && tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "push": "pnpm publish --access public --no-git-checks",
+    "link": "npm uninstall -g rtc && npm link --force",
+    "pnpm-link": "pnpm run build && pnpm link --global",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
     }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@gaopeng123/rtc-cli",
+  "description": "react template create cli",
+  "author": "ligaopeng123",
+  "module": "dist/rtc-cli.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/rtc-cli.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/rtc-cli.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.2",
+    "@types/lodash.template": "^4.5.0",
+    "@types/node": "^16.4.10",
+    "@types/prompts": "^2.0.14",
+    "husky": "^7.0.1",
+    "size-limit": "^5.0.2",
+    "ts-node": "^10.8.1",
+    "tsdx": "^0.14.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@gaopeng123/utils": "latest",
+    "cac": "^6.7.3",
+    "chalk": "^4.1.2",
+    "download-git-repo": "^3.0.2",
+    "fast-glob": "^3.2.7",
+    "lodash.template": "^4.5.0",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.1",
+    "tslib": "^2.3.0"
+  }
 }
