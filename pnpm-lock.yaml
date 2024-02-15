@@ -21,7 +21,7 @@ specifiers:
   typescript: ^4.3.5
 
 dependencies:
-  '@gaopeng123/utils': 0.6.1
+  '@gaopeng123/utils': 1.1.15-alpha.4
   cac: 6.7.14
   chalk: 4.1.2
   download-git-repo: 3.0.2
@@ -1253,76 +1253,84 @@ packages:
       '@jridgewell/trace-mapping': 0.3.9
     dev: true
 
-  /@gaopeng123/utils.array/0.6.1:
-    resolution: {integrity: sha512-6d77a4flnilEwqWVzKni5mt5EqohMiOtRP6sgqJtO8m+feN/3IvSWe0+lsyCgBCFrj+QRBgMdshzeholPN0lag==}
+  /@gaopeng123/utils.array/1.1.14:
+    resolution: {integrity: sha512-vWEaHN81dwQmoeosID8UlMIVYdwCWMrXUsFgssocEXqmPK3AYFnIQJR0ClUdfRJNBDyzjRXmcibLK5ANf+kX7Q==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.date/0.6.1:
-    resolution: {integrity: sha512-y1QADnM9Wrb2Aa+ZYFMBhHEhUjRmmje72WEquBBUbidfqZBFtt5Gm0Z25pgpKyuGDqoA6Kc5dy1n1kdOtTtHKQ==}
+  /@gaopeng123/utils.date/1.1.15-alpha.2:
+    resolution: {integrity: sha512-p8oeyom+EMhrQnJElWa41beckk8XeMbnTfzCMvNLdF8leI0rvNYCvTqTRV+5AZfzeAp4YFPepILxPhNirehOZw==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.file/0.6.1:
-    resolution: {integrity: sha512-bhvhIjtWp3aXSIVQ+q0vLbniDC7MVwPXyjpvQL/KzasZgXTVxFcJ0qUaeLvrQgX/4k8dOUTtp/IgXMzbYqDyOQ==}
+  /@gaopeng123/utils.file/1.1.15-alpha.4:
+    resolution: {integrity: sha512-OR2/yVMJezcpKWNSUJpxxKXYfAKpVfbNGtJ2oZJ7hZCaWPvGFrO3EGhI1BnKP8TC3gYw7lodtZJPEt82dxoIDQ==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.object': 0.6.1
-      '@gaopeng123/utils.string': 0.6.1
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.object': 1.1.14
+      '@gaopeng123/utils.string': 1.1.15-alpha.4
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.function/0.6.1:
-    resolution: {integrity: sha512-qF4g/fo4mEQe2JpL/FMprDgkSxCWlvLv2JmI/aj/+mbzuFB4DYhIfg7p4fcxHJU24FTvqlmKb+55ZwEBFqo4YQ==}
+  /@gaopeng123/utils.function/1.1.14:
+    resolution: {integrity: sha512-c1sfGegLkc18t4MgUuj93v5OJbufKu/snKja+j3VSQnsv4JooUqxzFjdpML4O0YXBCuKGXTohxwBTjOnvivZ7w==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.number/0.6.1:
-    resolution: {integrity: sha512-7or1p31By9QyjzhBhPZIZylrQ5KkQ3BC0nzJfgOTF2CDCFmhbzzUCLbzKDvfnarLD8IfI+TvN6YTklGMOKegfw==}
+  /@gaopeng123/utils.log/1.1.15-alpha.1:
+    resolution: {integrity: sha512-L4yxS/f25AbJyEFNS4kO4ApXjobx2Oe8BW5BlpNiWxP3rbfCAUQtROdXDPp+9DvY8bSGPosPOyVf39UrResjqw==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.object/0.6.1:
-    resolution: {integrity: sha512-OnFqHMcgiNnpa46z2Ts5j5KHxsqvqMCh9UwvUG6ObmYYwK2It1UP6GslbkS+TI8RnlZZasNGdDTelgKt1mOKmQ==}
+  /@gaopeng123/utils.number/1.1.14:
+    resolution: {integrity: sha512-8a0r2CLrLux4mea1uq2TWf0ReeNVdCZH32z2NHJZnPefvXRwaozgV7Smxxq7MDcTiglTMzLjfBFE1qz8EhbEwg==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.function': 0.6.1
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.string/0.6.1:
-    resolution: {integrity: sha512-O1q8J5PZPEA1A0cXjLdGTcQzAD9vXYfIhaFcNMPFyjweIKrR/luuQtilvGRYc8HAj78GgqLfPtW3bFbR/RGY8g==}
+  /@gaopeng123/utils.object/1.1.14:
+    resolution: {integrity: sha512-Hnj188t7hLml456H8r1p8u2kDwOTDLI6oVy8swJLZoIWjFC6yTjyKMZwgT24I1n0WYgLnFEQij4kOXp7F5dQEg==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.function': 0.6.1
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.function': 1.1.14
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
-  /@gaopeng123/utils.types/0.6.1:
-    resolution: {integrity: sha512-PAYo6qOcVm0Bj66YMkBSvmxS2m+C9PZTwagzBtIEJvzPxqJpT/d5BoGHPD0++3O/VGqk11zEGLwbXWIjh/dQsg==}
-    engines: {node: '>=10'}
-    dev: false
-
-  /@gaopeng123/utils/0.6.1:
-    resolution: {integrity: sha512-CDfOT5pxP2Fc8aiz0CTXmmZyJdE2nspAX/EZlIV4Lke45Hx7J/Nuz7Zztt9UELH5lJVKrw0T7faDBgocSh8w8A==}
+  /@gaopeng123/utils.string/1.1.15-alpha.4:
+    resolution: {integrity: sha512-hSkVsrKjxBbGKyQKe9aFK8XuKZm6aI00Pj1K+1OW5bl597Z4cmiSGCpjEioTyRq7Sa9aNyoxZDrLWYc9R8vHJA==}
     engines: {node: '>=10'}
     dependencies:
-      '@gaopeng123/utils.array': 0.6.1
-      '@gaopeng123/utils.date': 0.6.1
-      '@gaopeng123/utils.file': 0.6.1
-      '@gaopeng123/utils.function': 0.6.1
-      '@gaopeng123/utils.number': 0.6.1
-      '@gaopeng123/utils.object': 0.6.1
-      '@gaopeng123/utils.string': 0.6.1
-      '@gaopeng123/utils.types': 0.6.1
+      '@gaopeng123/utils.function': 1.1.14
+      '@gaopeng123/utils.types': 1.1.14
+    dev: false
+
+  /@gaopeng123/utils.types/1.1.14:
+    resolution: {integrity: sha512-Mhs9dhuhSqR1lK+vZgEDFN8ELG2G7y7KEYoEHZU7KmC2DnhzbLkzZZHdXukglAko/9Zp26VvMLiQ63rDtjTKkg==}
+    engines: {node: '>=10'}
+    dev: false
+
+  /@gaopeng123/utils/1.1.15-alpha.4:
+    resolution: {integrity: sha512-Si2SrA0Tkrvf0KAJi8y9JIVcKGfocCyzaVN5dsn6K1JqHRc4BLyDnjrs7tLnj2DFbVnKZu4YzizWBA6Um/YpHA==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@gaopeng123/utils.array': 1.1.14
+      '@gaopeng123/utils.date': 1.1.15-alpha.2
+      '@gaopeng123/utils.file': 1.1.15-alpha.4
+      '@gaopeng123/utils.function': 1.1.14
+      '@gaopeng123/utils.log': 1.1.15-alpha.1
+      '@gaopeng123/utils.number': 1.1.14
+      '@gaopeng123/utils.object': 1.1.14
+      '@gaopeng123/utils.string': 1.1.15-alpha.4
+      '@gaopeng123/utils.types': 1.1.14
     dev: false
 
   /@istanbuljs/load-nyc-config/1.1.0:
@@ -4653,7 +4661,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
