@@ -13,7 +13,7 @@ import glob from 'fast-glob';
 import fs from 'fs';
 import path from "path";
 import template from 'lodash.template';
-import {TemplateContents} from "../typing";
+import { TemplateContents } from "../typing";
 
 /**
  * 检查文件是否存在
@@ -91,15 +91,29 @@ export const writeFile = async (input: string, contents: string | Uint8Array): P
  * 读取文件路径
  * @param cwd
  */
-export const filePath = async (cwd: string) => {
-    return await glob(['**'], {
+export const filePath = async (cwd: string, excludes?: string[]) => {
+    const fileList = await glob(['**'], {
         cwd: cwd,
-        ignore: ['*js.map', '*.js'],
+        ignore: ['*js.map', '*.bmp', '*.jpg', '*.png', '*.tif', '*.gif', '*.pcx', '*.tga', '*.exif', '*.fpx', '*.svg',
+            '*.psd', '*.cdr', '*.pcd', '*.dxf', '*.ufo', '*.eps', '*.ai', '*.raw', '*.WMF', '*.webp', '*.avif', '*.apng',
+            '*.ttf', '*.pem'],
         dot: true,
-        deep: 5
+        deep: 5,
     });
-
+    return fileList.filter((item: string) => {
+        if(excludes && excludes?.includes(item)) {
+            return true;
+        }
+        return !item.endsWith('.js');
+    });
 };
+
+/**
+ * 文件列表
+ */
+// export const fileListByType = (type: string) => {
+//
+// }
 
 /**
  * 文件内容
@@ -108,7 +122,7 @@ export const filePath = async (cwd: string) => {
 export const fileContents = async (entries: Array<string>, cwd: string): Promise<Array<TemplateContents>> => {
     return await Promise.all(entries.map(async (entry: string) => {
         const contents = await readFile(path.join(cwd, entry));
-        return {path: entry, contents}
+        return { path: entry, contents }
     }));
 };
 /**
@@ -120,7 +134,7 @@ export const editTemplate = (contents: Uint8Array, data: object, errerBack?: (co
     try {
         const text = contents.toString();
         // 避免解析es6中的`${}`模版语法
-        const compiled: any = template(text, {interpolate: /<%=([\s\S]+?)%>/g});
+        const compiled: any = template(text, { interpolate: /<%=([\s\S]+?)%>/g });
         const newContents = compiled(data);
         return Buffer.from(newContents);
     } catch (e) {
@@ -188,6 +202,6 @@ export const getGitDownloadUlr = (branch: string): string => {
 }
 // https://github.com/ligaopeng123/react-project-template.git#react-simple
 // https://github.com/ligaopeng123/react-project-template/archive/refs/heads/react-simple.zip
-export const spliceGitDownloadUlr = (isClone: boolean, branch: string)=> {
+export const spliceGitDownloadUlr = (isClone: boolean, branch: string) => {
     return isClone ? `${GIT_TEMPLATE_URL}.git#${branch}` : `${GIT_TEMPLATE_URL}/archive/refs/heads/${branch}.zip`;
 }

@@ -14,6 +14,9 @@ import {PromptObject} from "prompts";
 
 export interface Template {
 	git: string;
+	title: string;
+	value: string;
+	description?: string;
 }
 
 export type Install = 'npm' | 'pnpm' | 'yarn' | 'cnpm';
@@ -68,4 +71,3 @@ export interface TemplateContents {
 	path: string;
 	contents: Uint8Array
 }
-

@@ -18,6 +18,7 @@ import {
     writeFile
 } from "../utils/file";
 import { Context } from "../typing";
+import { excludes } from "../utils/excludes";
 
 const template = async (ctx: Context): Promise<void> => {
     /**
@@ -29,24 +30,26 @@ const template = async (ctx: Context): Promise<void> => {
     /**
      * 获取文件目录
      */
-    const entries = await filePath(cwd);
+    const entries = await filePath(cwd, excludes(ctx.answers.template.title));
     /**
      * 获取文件内容
      */
     const allContents = await fileContents(entries, cwd);
+    const contents = allContents;
     /**
-     * 过滤掉图片 图片不需要做处理
+     * 过滤掉图片 图片不需要做处理 在filePath中过滤
      */
-    const contents = allContents.filter((item) => {
-        const filepath = item.path;
-        const imgTypes = ['bmp', 'jpg', 'png', 'tif', 'gif', 'pcx', 'tga', 'exif', 'fpx', 'svg',
-            'psd', 'cdr', 'pcd', 'dxf', 'ufo', 'eps', 'ai', 'raw', 'WMF', 'webp', 'avif', 'apng',
-            'ttf', 'pem'];
-        const currentFile = imgTypes.filter((str) => {
-            return filepath.endsWith(`.${str}`);
-        });
-        return currentFile.length === 0;
-    });
+    // const contents = allContents.filter((item) => {
+    //     const filepath = item.path;
+    //     console.log('filepath', filepath)
+    //     const imgTypes = ['bmp', 'jpg', 'png', 'tif', 'gif', 'pcx', 'tga', 'exif', 'fpx', 'svg',
+    //         'psd', 'cdr', 'pcd', 'dxf', 'ufo', 'eps', 'ai', 'raw', 'WMF', 'webp', 'avif', 'apng',
+    //         'ttf', 'pem'];
+    //     const currentFile = imgTypes.filter((str) => {
+    //         return filepath.endsWith(`.${str}`);
+    //     });
+    //     return currentFile.length === 0;
+    // });
     /**
      * 存储项目目录
      */

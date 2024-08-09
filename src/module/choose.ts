@@ -10,45 +10,50 @@
  *
  **********************************************************************/
 import prompts from "prompts";
-import { Context } from "../typing";
+import { Context, Template } from "../typing";
 import { getGitDownloadUlr, username } from "../utils/file";
 import { formatTimestamp } from "@gaopeng123/utils";
 
 /**
  * git 地址
  */
-const git = async (): Promise<string> => {
-    const {choose}: { choose?: string } = await prompts([
+const git = async (): Promise<Template> => {
+    const choices = [
+        {
+            title: 'table',
+            value: getGitDownloadUlr('table-module'),
+            description: '简单表格'
+        },
+        {
+            title: 'web-component',
+            value: getGitDownloadUlr('componentModule'),
+            description: 'web-component组件'
+        },
+        {
+            title: 'rc-component',
+            value: getGitDownloadUlr('RcComponentModule'),
+            description: 'rc-component组件'
+        },
+        {
+            title: 'function',
+            value: getGitDownloadUlr('functionModule'),
+            description: 'monorepo单函数'
+        }
+    ];
+    const {choose}: { choose: string } = await prompts([
         {
             name: 'choose',
             type: 'select',
             message: `Please select the module to be created`,
             hint: ' ',
-            choices: [
-                {
-                    title: 'table',
-                    value: getGitDownloadUlr('table-module'),
-                    description: '简单表格'
-                },
-                {
-                    title: 'web-component',
-                    value: getGitDownloadUlr('componentModule'),
-                    description: 'web-component组件'
-                },
-                {
-                    title: 'rc-component',
-                    value: getGitDownloadUlr('RcComponentModule'),
-                    description: 'rc-component组件'
-                },
-                {
-                    title: 'function',
-                    value: getGitDownloadUlr('functionModule'),
-                    description: 'monorepo单函数'
-                }
-            ]
+            choices: choices
         }
     ]);
-    return choose as string;
+    const template = choices.find(item => item.value === choose) as Template;
+    return {
+        ...template,
+        git: template.value
+    };
 };
 
 
@@ -57,7 +62,7 @@ const choose = async (ctx: Context): Promise<void> => {
     /**
      * git路径
      */
-    ctx.answers.template.git = await git();
+    ctx.answers.template = await git();
     /**
      * 注入用户回答
      */

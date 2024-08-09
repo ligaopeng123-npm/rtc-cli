@@ -18,7 +18,9 @@ const context = (tpl: string): Context => ({
 	answers: {
 		project: null,
 		template: {
-			git: ''
+			git: '',
+			title: '',
+			value: ''
 		},
 		install: "npm",
 		images: {
