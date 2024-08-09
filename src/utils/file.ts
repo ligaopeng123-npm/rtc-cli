@@ -119,7 +119,8 @@ export const fileContents = async (entries: Array<string>, cwd: string): Promise
 export const editTemplate = (contents: Uint8Array, data: object, errerBack?: (contents: Uint8Array) => Uint8Array): Uint8Array => {
     try {
         const text = contents.toString();
-        const compiled: any = template(text);
+        // 避免解析es6中的`${}`模版语法
+        const compiled: any = template(text, {interpolate: /<%=([\s\S]+?)%>/g});
         const newContents = compiled(data);
         return Buffer.from(newContents);
     } catch (e) {
