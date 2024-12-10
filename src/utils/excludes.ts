@@ -14,6 +14,7 @@
 export const excludes = (title: string) => {
     const excludesEnum: Record<string, Array<string>>  = {
         'web-component': ['chokidarStyles.js'],
+        'table-js': ['servers.js', 'model.js'],
     }
     return excludesEnum[title];
 }

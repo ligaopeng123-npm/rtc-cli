@@ -25,6 +25,11 @@ const git = async (): Promise<Template> => {
             description: '简单表格'
         },
         {
+            title: 'table-js',
+            value: getGitDownloadUlr('y-table-module'),
+            description: '简单表格js版本'
+        },
+        {
             title: 'web-component',
             value: getGitDownloadUlr('componentModule'),
             description: 'web-component组件'
